@@ -19,7 +19,7 @@ int main()
 		printf("Veuillez rentrer votre second nombre : \n");
 		scanf("%d", &nombre_second);
 		resultat = nombre_un + nombre_second;
-		printf("Le résultat de votre addition est : %d\n", resultat);
+		printf("%d %c %d = %d\n", nombre_un, operateur, nombre_second, resultat);
 
 	} 
 
@@ -31,18 +31,20 @@ int main()
 		printf("Veuillez rentrer votre second nombre : \n");
 		scanf("%d", &nombre_second);
 		resultat = nombre_un - nombre_second;
-		printf("soustraction \n");
+		printf("%d %c %d = %d\n", nombre_un, operateur, nombre_second, resultat);
+
 	}
 
 	else if (operateur == '*')
 	{
-		double resultat;
+		int resultat;
 		printf("Veuillez rentrer votre premier nombre : \n");
 		scanf("%d", &nombre_un);
 		printf("Veuillez rentrer votre second nombre : \n");
 		scanf("%d", &nombre_second);
 		resultat = nombre_un * nombre_second;
-		printf("multiplication \n");
+		printf("%d %c %d = %d\n", nombre_un, operateur, nombre_second, resultat);
+
 	}
 
 	else if (operateur == '/')
@@ -58,8 +60,8 @@ int main()
 		}
 		else
 		{
-			resultat = nombre_un % nombre_second;
-			printf("%2.f \n", resultat);
+			resultat = (double)nombre_un / nombre_second;
+			printf("%d %c %d = %.2f\n", nombre_un, operateur, nombre_second, resultat);
 		}	
 	}
 	else if (operateur == '%')
@@ -69,14 +71,20 @@ int main()
 		scanf("%d", &nombre_un);
 		printf("Veuillez rentrer votre second nombre : \n");
 		scanf("%d", &nombre_second);
-		resultat = nombre_un % nombre_second;
-		printf("modulo \n");
-
+		if (nombre_second == 0)
+		{
+			printf("Il est impossible de diviser par zéro!\n");
+		}
+		else
+		{
+			resultat = nombre_un % nombre_second;
+			printf("%d %c %d = %d\n", nombre_un, operateur, nombre_second, resultat);
+		}
 	}
 
 	else
 	{
-		printf("Opérateur hs \n");
+		printf("Opérateur non reconnu par cette calculatrice. \n");
 	}
 
 
